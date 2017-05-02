@@ -13,20 +13,15 @@ import java.io.InputStreamReader;
 public class No10_SumAllNumbers {
     public static void main(String[] args) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            int numbersCnt  = Integer.parseInt(br.readLine());
-            int numbers     = Integer.parseInt(br.readLine());
-            int sumAll = 0;
+            int numbersCnt          = Integer.parseInt(br.readLine());
+            String numbers          = br.readLine();
+            String[] numbersArray   = numbers.split("");
             
-            for (int i = (numbersCnt - 1); i >= 0; i--) {
-                if (i != 0) {
-                    int tenPow = (int) Math.pow(10, i);
-                    sumAll += numbers / tenPow;
-                    numbers -= (numbers / tenPow) * tenPow;
-                } else {
-                    sumAll += numbers;
-                }
+            int sumNumbers = 0;
+            for (int i = 0; i < numbersCnt; i++) {
+                sumNumbers += Integer.parseInt(numbersArray[i]);
             }
-            System.out.println(sumAll);
+            System.out.println(sumNumbers);
             
         } catch (IOException ioException) {
             ioException.printStackTrace();
